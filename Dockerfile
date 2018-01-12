@@ -27,8 +27,11 @@ RUN dnf install -y \
     /usr/bin/virtualenv \
     gcc \
     gcc-c++ \
+    git-core \
     && dnf clean all
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-CMD ["/usr/bin/tox"]
+ADD run_tests.sh /
+
+CMD ["/run_tests.sh"]
